@@ -1,13 +1,28 @@
-// <div class="popover top">
-//     <div class="arrow"></div>
-//     <h3 class="popover-title">Popover top</h3>
-//     <div class="popover-content">
-//     	<p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-//     </div>
-// </div>
+bootstrap.PopoverTrigger = enyo.mixin({
+	published: {
+		triggers: ["hover", "focus"], // hover, focus, click
+		popoverTitle: "",
+		popoverContent: "",
+		popoverPlacement: "top",
+		popoverDelay: 0
+	},
+	initializeTip: function(){
+		if (!this.tip) {
+			this.tip = this.createComponent({
+				kind:"bootstrap.Popover",
+				title: this.popoverTitle,
+				content: this.popoverContent,
+				delay: this.popoverDelay,
+				placement: this.popoverPlacement
+			});
+			this.tip.render();
+		}
+	}
+}, bootstrap.TipTrigger);
 
 enyo.kind({
 	name: "bootstrap.Popover",
+	mixins: [ "bootstrap.TipPositioner" ],
 	classes: "popover",
 	published: {
 		title: "",
@@ -19,12 +34,10 @@ enyo.kind({
 		{kind: "bootstrap.PopoverTitle"},
 		{kind: "bootstrap.PopoverContent"}
 	],
-	create: function(){
-		this.inherited(arguments);
-		this.addClass(this.position);
+	applyContent: function(title, body){
 		this.$.popoverTitle.setContent(this.title);
 		this.$.popoverContent.$.text.setContent(this.content);
-	}
+	},
 });
 
 enyo.kind({
@@ -45,5 +58,3 @@ enyo.kind({
 	name: "bootstrap.PopoverArrow",
 	classes: "arrow",
 });
-
-

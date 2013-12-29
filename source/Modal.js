@@ -49,7 +49,7 @@ enyo.kind({
 			return;
 		}
 		this.isShown = true;
-		this.setAttribute("style", "display: block;");
+		this.applyStyle("display", "block");
 		this.focus();
 		setTimeout(this.bindSafely(this.fadeIn), 10);
 	},
@@ -68,7 +68,7 @@ enyo.kind({
 		this.setAttribute("aria-hidden", true);
 	},
 	transitionComplete: function(inSender, inEvent) {
-		if(inEvent.originator === this) {
+		if (inEvent.originator === this) {
 			if (this.hiding) {
 				this.hiding = false;
 				this.removeClass("out");

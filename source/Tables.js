@@ -1,6 +1,7 @@
 enyo.kind({
 	name: "bootstrap.Table",
 	classes: "table",
+	defaultKind: "bootstrap.TableRow",
 	tag: "table",
 	published: {
 		bordered: false,
@@ -10,7 +11,7 @@ enyo.kind({
 		striped: true
 	},
 	create: function(){
-		this.inheritied(arguments);
+		this.inherited(arguments);
 		this.setupClasses();
 	},
 	setupClasses: function(){
@@ -35,51 +36,44 @@ enyo.kind({
 enyo.kind({
 	name: "bootstrap.TableHead",
 	tag: "thead",
+	defaultKind: "bootstrap.TableHeaderRow",
 });
 
 enyo.kind({
 	name: "bootstrap.TableBody",
-	tag: "thead",
+	tag: "tbody",
+	defaultKind: "bootstrap.TableRow",
 });
 
 enyo.kind({
 	name: "bootstrap.TableFoot",
 	tag: "tfoot",
+	defaultKind: "bootstrap.TableRow",
 });
 
 enyo.kind({
 	name: "bootstrap.TableRow",
+	defaultKind: "bootstrap.TableCell",
 	tag: "tr",
 	published: {
 		highlight: null,  // active, success, warning, danger
 	},
 	create: function(){
-		this.inheritied(arguments);
-		this.createClasses();
+		this.inherited(arguments);
+		this.setupClasses();
 	},
 	setupClasses: function(){
 		if(this.highlight){
-			this.addClass("highlight");
+			this.addClass(this.highlight);
 		}
 	}
 });
 
 enyo.kind({
-	name: "bootstrap.TableHeaderCell",
-	tag: "th",
-	published: {
-		highlight: null,  // active, success, warning, danger
-	},
-	create: function(){
-		this.inheritied(arguments);
-		this.createClasses();
-	},
-	setupClasses: function(){
-		if(this.highlight){
-			this.addClass("highlight");
-		}
-	}
-});
+	name: "bootstrap.TableHeaderRow",
+	kind: "bootstrap.TableRow",
+	defaultKind: "bootstrap.TableHeaderCell"
+})
 
 enyo.kind({
 	name: "bootstrap.TableCell",
@@ -88,12 +82,18 @@ enyo.kind({
 		highlight: null,  // active, success, warning, danger
 	},
 	create: function(){
-		this.inheritied(arguments);
-		this.createClasses();
+		this.inherited(arguments);
+		this.setupClasses();
 	},
 	setupClasses: function(){
 		if(this.highlight){
-			this.addClass("highlight");
+			this.addClass(this.highlight);
 		}
 	}
+});
+
+enyo.kind({
+	name: "bootstrap.TableHeaderCell",
+	kind: "bootstrap.TableCell",
+	tag: "th"
 });
