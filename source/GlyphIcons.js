@@ -27,13 +27,13 @@ enyo.kind({
 				step-forward, stop, subtitles, tag, tags, tasks, text-height, text-width, th, th-large, th-list,
 				thumbs-down, thumbs-up, time, tint, tower, transfer, trash, tree-conifer, tree-deciduous, unchecked,
 				upload, usd, user, volume-down, volume-off, volume-up, warning-sign, wrench, zoom-in, zoom-out
-         **/
+		 **/
 	},
 	create: function() {
-        this.inherited(arguments);
+		this.inherited(arguments);
 
-        if (this.icon) {
-        	this.addClass("glyphicon-" + this.icon);
-        }
-    }
+		if (this.icon) {
+			this.addClass("glyphicon-" + this.icon);
+		}
+	}
 });

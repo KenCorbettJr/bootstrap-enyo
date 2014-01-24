@@ -13,23 +13,23 @@ enyo.kind({
 	// ...........................
 	// PROTECTED METHODS
 	create: function() {
-        this.inherited(arguments);
-        this.setupClasses();
-        if(this.dismissable){
-        	this.createComponent({kind:"bootstrap.AlertCloseIcon", addBefore: null});
-        }
-    },
-    setupClasses: function(){
-    	var classes = [this.getClassAttribute()];
-    	classes.push("alert-" + this.type);
-    	if(this.dismissable){
-    		classes.push('alert-dismissable');
-    	}
-    	this.setClassAttribute(classes.join(' '));
-    },
-    dismissAlert: function(){
-    	this.destroy();
-    }
+		this.inherited(arguments);
+		this.setupClasses();
+		if(this.dismissable){
+			this.createComponent({kind:"bootstrap.AlertCloseIcon", addBefore: null});
+		}
+	},
+	setupClasses: function(){
+		var classes = [this.getClassAttribute()];
+		classes.push("alert-" + this.type);
+		if(this.dismissable){
+			classes.push('alert-dismissable');
+		}
+		this.setClassAttribute(classes.join(' '));
+	},
+	dismissAlert: function(){
+		this.destroy();
+	}
 });
 
 enyo.kind({

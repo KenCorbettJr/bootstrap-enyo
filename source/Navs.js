@@ -36,16 +36,15 @@ enyo.kind({
 	],
 	create: function() {
 		this.inherited(arguments);
-		this.setupClass();
 		this.setupLink();
+		this.disabledChanged();
+		this.activeChanged();
 	},
-	setupClass: function(){
-		if(this.disabled){
-			this.addClass('disabled');
-		}
-		if(this.active){
-			this.addClass('active');
-		}
+	disabledChanged: function(){
+		this.addRemoveClass('disabled', this.disabled);
+	},
+	activeChanged: function(){
+		this.addRemoveClass('active', this.active);
 	},
 	setupLink: function(){
 		this.$.link.setContent(this.text);

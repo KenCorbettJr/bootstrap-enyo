@@ -9,6 +9,9 @@ enyo.kind({
 		brandText: "Brand",
 		brandHref: "#",
 	},
+	handlers: {
+		"onNavbarToggle": "toggleNavbar"
+	},
 	components: [
 		{kind: "bootstrap.Container", components: [
 			{kind: "bootstrap.NavbarHeader"},
@@ -35,6 +38,9 @@ enyo.kind({
 		} else {
 			this.addClass('navbar-static-top');
 		}
+	},
+	toggleNavbar: function(){
+		// TODO: have this trigger the collapse section of the navbar
 	}
 });
 
@@ -73,12 +79,21 @@ enyo.kind({
 	attributes: {
 		"type": "button",
 	},
+	events: {
+		"onNavbarToggle": ""
+	},
+	handlers: {
+		ontap: "doNavbarToggle",
+	},
 	components: [
 		{tag: "span", classes: "sr-only", content: "Toggle Navigation"},
 		{tag: "span", classes: "icon-bar"},
 		{tag: "span", classes: "icon-bar"},
 		{tag: "span", classes: "icon-bar"},
-	]
+	],
+	navbarToggleTap: function() {
+		alert("Hello World!");
+	}
 });
 
 enyo.kind({

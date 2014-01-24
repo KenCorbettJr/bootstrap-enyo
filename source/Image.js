@@ -11,12 +11,12 @@ enyo.kind({
 	// ...........................
 	// PROTECTED METHODS
 	create: function() {
-        this.inherited(arguments);
-        this.setupClasses();
-    },
-    setupClasses: function(){
-    	var classes = [this.getClassAttribute()];
-    	classes.push('img-' + this.type);
-    	this.setClassAttribute(classes.join(' '));
-    }
+		this.inherited(arguments);
+		this.setupClasses();
+	},
+	setupClasses: function(){
+		var classes = [this.getClassAttribute()];
+		classes.push('img-' + this.type);
+		this.setClassAttribute(classes.join(' '));
+	}
 });

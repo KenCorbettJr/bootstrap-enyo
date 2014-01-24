@@ -33,21 +33,21 @@ enyo.kind({
 	// ...........................
 	// PROTECTED METHODS
 	create: function() {
-        this.inherited(arguments);
-        this.setupClasses();
-    },
-    setupClasses: function(){
-    	enyo.forEach(this.columns, this.addColumnClass, this);
-    },
-    addColumnClass: function(column){
-    	var columnClass = ["col", column.screenSize];
-    	if(this.push){
-    		columnClass.push("push");
-    	} else if (this.pull) {
-    		columnClass.push("pull");
-    	} else if (this.offset) {
-    		columnClass.push('offset')
-    	}
-    	this.addClass(columnClass.join('-'));
-    }
+		this.inherited(arguments);
+		this.setupClasses();
+	},
+	setupClasses: function(){
+		enyo.forEach(this.columns, this.addColumnClass, this);
+	},
+	addColumnClass: function(column){
+		var columnClass = ["col", column.screenSize];
+		if(this.push){
+			columnClass.push("push");
+		} else if (this.pull) {
+			columnClass.push("pull");
+		} else if (this.offset) {
+			columnClass.push('offset')
+		}
+		this.addClass(columnClass.join('-'));
+	}
 });

@@ -20,8 +20,6 @@ enyo.kind({
 	tag: "label",
 })
 
-enyo.FormControl
-
 enyo.kind({
 	name: "bootstrap.FormControl",
 	classes: "form-control",

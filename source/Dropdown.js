@@ -12,7 +12,7 @@ bootstrap.DropdownToggle = {
 	},
 	events: {
 		onDropdownToggle: "",
-	},
+	}
 };
 
 /* Bootstrap Dropdown mixin
