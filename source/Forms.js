@@ -8,6 +8,14 @@ enyo.kind({
 		inline: false,
 		horizontal: false,
 	},
+	initComponents: function() {
+		this.inherited(arguments);
+		if (this.inline) {
+			this.addClass("form-inline");
+		} else if (this.horizontal) {
+			this.addClass("form-horizontal")
+		}
+	}
 });
 
 enyo.kind({
@@ -18,6 +26,15 @@ enyo.kind({
 enyo.kind({
 	name: "bootstrap.FormControlLabel",
 	tag: "label",
+	published: {
+		screenReaderOnly: false,
+	},
+	initComponents: function() {
+		this.inherited(arguments);
+		if (this.screenReaderOnly) {
+			this.addClass("sr-only");
+		}
+	}
 })
 
 enyo.kind({
@@ -33,8 +50,8 @@ enyo.kind({
 });
 
 enyo.kind({
-	name: "bootstrap.Textarea",
-	tag: "input",
+	name: "bootstrap.TextArea",
+	tag: "textarea",
 	classes: "form-control",
 	attributes: {
 		rows: "3",
