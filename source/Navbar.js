@@ -49,7 +49,10 @@ enyo.kind({
 		if (this.fixed) {
 			this.removeClass('navbar-static-top');
 			this.addClass('navbar-fixed-' + this.position);
-		} else {
+		} else if (this.default) {
+			this.removeClass('navbar-static-top');
+    }
+    else {
 			this.addClass('navbar-static-top');
 			this.removeClass('navbar-fixed-' + this.position);
 		}
