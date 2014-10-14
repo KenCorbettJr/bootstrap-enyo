@@ -2,8 +2,18 @@ enyo.kind({
 	name: "bootstrap.Container",
 	// ...........................
 	// PUBLIC PROPERTIES
-	classes: "container",
 	tag: 'div',
+	published: {
+    fluid: false
+  },
+	create: function() {
+		this.inherited(arguments);
+    var classes = ["container"];
+    if(this.fluid) {
+      classes.push("fluid");
+    }
+    classes.length > 1 ? this.addClass(classes.join('-')) : this.addClass(classes);
+	}
 });
 
 enyo.kind({
