@@ -5,6 +5,7 @@ enyo.kind({
 	published: {
 		inverse: false,
 		fixed: false,
+    inContainer: false,
 		position: "top",  // Or bottom, only applies when the navbar is fixed.
 		brand: "Brand",
 		brandHref: "#",
@@ -13,16 +14,19 @@ enyo.kind({
 		"onNavbarToggle": "toggleNavbar"
 	},
 	components: [
-		{kind: "bootstrap.Container", components: [
-			{kind: "bootstrap.NavbarHeader"},
-			{kind: "bootstrap.NavbarCollapse"}
-		]},
+    {name: "container", components: [
+		  {kind: "bootstrap.NavbarHeader"},
+		  {kind: "bootstrap.NavbarCollapse"}
+    ]}
 	],
 	initComponents: function(){
 		this.inherited(arguments);
 		if (this.navbarComponents) {
 			this.$.navbarCollapse.createComponents(this.navbarComponents);
 		}
+    if (this.inContainer) {
+      this.$.container.addClass("container");
+    }
 	},
 	create: function(){
 		this.inherited(arguments);
