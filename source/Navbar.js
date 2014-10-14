@@ -68,7 +68,13 @@ enyo.kind({
 		}
 	},
 	toggleNavbar: function(){
-		// TODO: have the colapse expand the drawer.
+    if(this.$.navbarCollapse.opened) {
+      this.$.navbarCollapse.opened = false;
+    } else {
+      this.$.navbarCollapse.opened = true;
+    }
+
+    this.$.navbarCollapse.addRemoveClass("in", this.$.navbarCollapse.opened);
 	}
 });
 
@@ -147,5 +153,6 @@ enyo.kind({
 
 enyo.kind({
 	name: "bootstrap.NavbarCollapse",
-	classes: "navbar-collapse in",
+  opened: false,
+	classes: "navbar-collapse collapse",
 });
