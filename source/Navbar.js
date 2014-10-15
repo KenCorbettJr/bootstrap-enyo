@@ -28,6 +28,8 @@ enyo.kind({
 		}
     if (this.inContainer) {
       this.$.container.addClass("container");
+    } else {
+      this.$.container.addClass("container-fluid");
     }
     if (this.sidebar) {
       this.$.navbarHeader.$.navbarToggle.handlers.ontap = "doSideNavbarToggle";
