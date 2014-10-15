@@ -29,7 +29,7 @@ enyo.kind({
 		disabled: false,
 		active: false,
 		text: "",
-		href: "#",
+		href: "javascript:;",
 	},
 	components: [
 		{ kind: "bootstrap.MenuLink", name: 'link' },
@@ -56,7 +56,7 @@ enyo.kind({
 	name: "bootstrap.MenuLink",
 	tag: 'a',
 	attributes: {
-		href: '#',
+		href: 'javascript:;',
 	}
 });
 

@@ -43,10 +43,17 @@ enyo.kind({
 	tag: 'input',
 	attributes: {
 		type: "text",
+    placeholder: "",
 	},
 	published: {
 		type: "text",
-	}
+	},
+  create: function() {
+		this.inherited(arguments);
+		if (this.placeholder) {
+      this.attributes.placeholder = this.placeholder;
+		}
+  }
 });
 
 enyo.kind({
