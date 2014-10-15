@@ -49,6 +49,9 @@ enyo.kind({
 	setupLink: function(){
 		this.$.link.setContent(this.text);
 		this.$.link.setAttribute("href", this.href);
+    if(this.method){
+		  this.$.link.setMethod(this.method);      
+    }
 	}
 });
 
