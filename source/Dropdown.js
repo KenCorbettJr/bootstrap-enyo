@@ -63,7 +63,7 @@ bootstrap.Dropdown = {
 enyo.kind({
 	name: "bootstrap.Carat",
 	tag: 'span',
-	classes: 'caret'
+	classes: 'fa fa-caret-down'
 });
 
 enyo.kind({
