@@ -1,48 +1,9 @@
-bootstrap.TooltipTrigger = enyo.mixin({
-	published: {
-		triggers: ["hover", "focus"], // hover, focus, click
-		tooltipContent: "",
-		tooltipPlacement: "top",
-		tooltipDelay: 0
-	},
-	initializeTip: function(){
-		if (!this.tip) {
-			this.tip = this.createComponent({
-				kind:"bootstrap.Tooltip",
-				content: this.tooltipContent,
-				delay: this.tooltipDelay,
-				placement: this.tooltipPlacement
-			});
-			this.tip.render();
-		}
-	}
-}, bootstrap.TipTrigger);
+// var derp = [].slice.call(document.querySelectorAll("label.tree-toggler"));
 
-enyo.kind({
-	name: "bootstrap.Tooltip",
-	mixins: [ "bootstrap.TipPositioner" ],
-	classes: "tooltip",
-	published: {
-		content: "",
-	},
-	components: [
-		{kind: "bootstrap.TooltipInner"},
-		{kind: "bootstrap.TooltipArrow"}
-	],
-	applyContent: function(){
-		this.$.tooltipInner.$.text.setContent(this.content);
-	}
-});
+// derp.forEach(function(item){
+//   item.addEventListener('click',function(){
 
-enyo.kind({
-	name: "bootstrap.TooltipInner",
-	classes: "tooltip-inner",
-	components: [
-		{tag: "span", name: "text"}
-	]
-});
-
-enyo.kind({
-	name: "bootstrap.TooltipArrow",
-	classes: "tooltip-arrow"
-});
+//     var child = [].slice.call(this.parentNode.querySelectorAll('ul.tree'))[0];
+//     child.style.display == "block" ? child.style.display = "none" : child.style.display = "block";
+//   });
+// });

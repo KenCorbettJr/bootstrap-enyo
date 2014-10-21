@@ -84,8 +84,6 @@ enyo.kind({
     this.$.navbarCollapse.addRemoveClass("in", this.$.navbarCollapse.opened);
 	},
   toggleSideNavbar: function(){
-    console.log( 'fuck' );
-
     var offcanvasRow = document.querySelectorAll('.row-offcanvas')[0];
     
     if (offcanvasRow.classList) {

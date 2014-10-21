@@ -20,8 +20,18 @@ enyo.kind({
 	name: "bootstrap.Row",
 	// ...........................
 	// PUBLIC PROPERTIES
-	classes: "row",
+	published: {
+    fluid: false
+  },
 	tag: 'div',
+	create: function() {
+		this.inherited(arguments);
+    var classes = ["row"];
+    if(this.fluid) {
+      classes.push("fluid");
+    }
+    classes.length > 1 ? this.addClass(classes.join('-')) : this.addClass(classes);
+	}  
 });
 
 enyo.kind({
