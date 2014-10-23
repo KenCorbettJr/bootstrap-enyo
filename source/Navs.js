@@ -1,7 +1,7 @@
 enyo.kind({
 	name: "bootstrap.Nav",
 	classes: "nav",
-	tag: 'ul',
+	tag: 'ul', 
 	published: {
 		type: 'tabs', // or pills
 		justified: false,

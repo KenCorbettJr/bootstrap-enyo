@@ -23,6 +23,7 @@ enyo.depends(
   'Label.js',
   'ProgressBars.js',
   'Collapse.js',
+  'Tree.js',
 
 	'bootstrap.less'
 );
