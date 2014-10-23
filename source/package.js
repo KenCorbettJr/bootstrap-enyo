@@ -24,6 +24,7 @@ enyo.depends(
   'ProgressBars.js',
   'Collapse.js',
   'Tree.js',
+  'Tabs.js',
 
 	'bootstrap.less'
 );
