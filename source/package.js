@@ -20,6 +20,11 @@ enyo.depends(
 	'Tooltip.js',
 	'Tables.js',
 	'Well.js',
+  'Label.js',
+  'ProgressBars.js',
+  'Collapse.js',
+  'Tree.js',
+  'Tabs.js',
 
 	'bootstrap.less'
 );

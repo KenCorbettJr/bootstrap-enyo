@@ -1,1 +1,230 @@
+// Core variables and mixins
 @icon-font-path: 'lib/bootstrap-enyo/bootstrap/fonts/';
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+html, body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  position: absolute;
+  padding-top: 50px;
+}
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+/*
+ * Search
+ */
+.search {
+  .form-control {
+    width: 340px;
+  }
+  .btn {
+    padding: 10px 14px;
+    border-radius: 0 5px 5px 0;
+    margin-left: -3px;
+    border: none;
+    outline: none;
+  }
+}
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+/*
+ * Main content
+ */
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+/*
+ * Off Canvas
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    height: 100%;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 col */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%; /* 6 col */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 col */
+    .sidebar-offcanvas {
+      -webkit-transition: all .25s ease-out;
+           -o-transition: all .25s ease-out;
+              transition: all .25s ease-out;
+      left: 0px;
+    }
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 col */
+    .sidebar-offcanvas {
+      -webkit-transition: all .25s ease-out;
+           -o-transition: all .25s ease-out;
+              transition: all .25s ease-out;
+      left: 0px;
+    }
+  }
+
+  .sidebar-offcanvas {
+    position: fixed;
+    top: 51px;
+    height: 100%;
+    width: 50%; /* 6 col */
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+.progress-striped .progress-bar,
+.progress-bar-striped {
+  background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  -webkit-background-size: 40px 40px;
+  background-size: 40px 40px;
+}
+.progress-bar-striped {
+  background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+}
+/*
+ * Sidebar Tree nav styles
+ */
+.nav-list {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-bottom: 0;
+}
+ul.tree {
+  li.active {
+    a {
+      background: #428bca;
+      color: #ffffff;
+      &:hover {
+        background: #428bca;
+        color: #ffffff;
+      }
+    }
+  }
+}
+label.tree-toggler {
+  &:hover {
+    cursor: pointer;
+  }
+}
+/*
+ * Datalist styles
+ */
+.data-table {
+  margin-bottom: 20px;
+  .table-th,
+  .table-td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #dddddd;    
+  }
+  .table-th {
+    border-top: 0px;
+    font-weight: bold;
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd;
+  }
+  .table-tr {
+    &:nth-child(1) > .table-td { 
+      border-top: 0px;
+    }
+    &.selected {
+      background-color: #428bca !important;
+      color: #ffffff;
+    }
+    &:hover {
+      cursor: pointer;
+      color: #ffffff;
+      background-color: #3276b1 !important;
+    }
+  }
+  &.table-striped {  
+    .table-tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+  }
+}

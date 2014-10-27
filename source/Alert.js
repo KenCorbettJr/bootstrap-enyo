@@ -20,12 +20,12 @@ enyo.kind({
 		}
 	},
 	setupClasses: function(){
-		var classes = [this.getClassAttribute()];
+		var classes = [this.getAttribute('class')];
 		classes.push("alert-" + this.type);
 		if(this.dismissable){
 			classes.push('alert-dismissable');
 		}
-		this.setClassAttribute(classes.join(' '));
+		this.setAttribute('class', classes.join(' '));
 	},
 	dismissAlert: function(){
 		this.destroy();

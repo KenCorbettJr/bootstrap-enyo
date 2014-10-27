@@ -1,12 +1,15 @@
 enyo.kind({
 	name: "bootstrap.Nav",
 	classes: "nav",
-	tag: 'ul',
+	tag: 'ul', 
 	published: {
 		type: 'tabs', // or pills
 		justified: false,
 		stacked: false
 	},
+  handlers: {
+    onNavItemClicked: "changeActiveTab"
+  },
 	create: function() {
 		this.inherited(arguments);
 		this.setupClasses();
@@ -19,21 +22,27 @@ enyo.kind({
 		if(this.stacked && this.type === 'pills'){
 			this.addClass('nav-stacked');
 		}
-	}
+	},
+  changeActiveTab: function(inSender, inEvent){
+    this.waterfall("changeActiveTab", inEvent);
+  }
 });
 
 enyo.kind({
 	name: "bootstrap.MenuItem",
 	tag: 'li',
+  handlers: {
+    changeActiveTab: "changeActiveTab"
+  },
 	published: {
 		disabled: false,
 		active: false,
 		text: "",
-		href: "#",
+		href: "javascript:;",
 	},
 	components: [
 		{ kind: "bootstrap.MenuLink", name: 'link' },
-	],
+	],  
 	create: function() {
 		this.inherited(arguments);
 		this.setupLink();
@@ -49,15 +58,32 @@ enyo.kind({
 	setupLink: function(){
 		this.$.link.setContent(this.text);
 		this.$.link.setAttribute("href", this.href);
-	}
+	},
+  changeActiveTab: function(inSender, inEvent){
+    if(this.href === inEvent.originator.getAttribute('href')){
+      this.setActive(true);
+    }else{
+      this.setActive(false);
+    }
+
+  }
 });
 
 enyo.kind({
 	name: "bootstrap.MenuLink",
 	tag: 'a',
 	attributes: {
-		href: '#',
-	}
+		href: 'javascript:;',
+	},
+  handlers: {
+    ontap: "navItemClicked"
+  },
+  events: {
+    onNavItemClicked: ""
+  },
+  navItemClicked: function() {
+    this.doNavItemClicked();
+  }
 });
 
 enyo.kind({

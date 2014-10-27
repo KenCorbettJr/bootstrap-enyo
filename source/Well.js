@@ -18,6 +18,6 @@ enyo.kind({
 		if(this.size){
 			classes.push("well-" + this.size);
 		}
-		this.setClassAttribute(classes.join(' '));
+		this.setAttribute('class', classes.join(' '));
 	}
 });
