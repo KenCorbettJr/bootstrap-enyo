@@ -60,14 +60,12 @@ enyo.kind({
 		this.$.link.setAttribute("href", this.href);
 	},
   changeActiveTab: function(inSender, inEvent){
-    console.log( this );
-    console.log( inEvent );
-
     if(this.href === inEvent.originator.getAttribute('href')){
       this.setActive(true);
     }else{
       this.setActive(false);
     }
+
   }
 });
 

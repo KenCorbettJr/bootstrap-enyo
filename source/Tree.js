@@ -29,9 +29,6 @@ enyo.kind({
       } else {
         $this.parent.$.nav.show();
       }
-    } else {
-
-      // $this.parent.addRemoveClass("active", !$this.parent.hasClass('active'));        
     }
 
     return true;
